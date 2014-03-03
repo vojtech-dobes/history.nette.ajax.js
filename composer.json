@@ -1,0 +1,21 @@
+{
+	"name": "vojtech-dobes/nette-ajax-history",
+	"type": "library",
+	"description": "Adds History API support for Nette Framework.",
+	"keywords": ["nette", "nette.ajax.js", "ajax"],
+	"homepage": "https://github.com/vojtech-dobes/history.nette.ajax.js",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Vojtěch Dobeš",
+			"email": "me@vojtechdobes.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3.1",
+		"nette/nette": "~2.0"
+	},
+	"autoload": {
+		"classmap": ["src/"]
+	}
+}
