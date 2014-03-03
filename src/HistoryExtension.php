@@ -12,7 +12,7 @@ if (!class_exists('Nette\DI\CompilerExtension')) {
 /**
  * Provides support for History API
  */
-class Extension extends DI\CompilerExtension
+class HistoryExtension extends DI\CompilerExtension
 {
 
 	public function loadConfiguration()
