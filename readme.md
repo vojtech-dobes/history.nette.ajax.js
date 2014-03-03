@@ -1,16 +1,15 @@
 # History Extesnion
 
-Utilizes History API implemented in HTML 5.
+Adds History API support to nette.ajax.js addon for Nette Framework!
 
 ## Installation
 
-1. Link `history/history.ajax.js` after `nette.ajax.js`.
-2. Register config extension in `app/bootstrap.php`:
+1. Link `client-side/history.ajax.js` after `nette.ajax.js`.
+2. Register config extension in your configuration:
 
-```php
-$configurator->onCompile[] = function ($configurator, $compiler) {
-	$compiler->addExtension('ajax', new VojtechDobes\NetteAjax\Extension);
-};
+```
+extensions:
+	ajax-history: VojtechDobes\NetteAjax\Extension
 ```
 
 ## Usage
