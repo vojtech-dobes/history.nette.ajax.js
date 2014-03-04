@@ -1,0 +1,15 @@
+{
+	"name": "history.nette.ajax.js",
+	"license": "MIT",
+	"keywords": ["nette", "ajax", "jquery", "history"],
+	"main": "client-side/history.ajax.js",
+	"ignore": [
+		"src/*",
+		"composer.json",
+		"CONTRIBUTING.md",
+		"readme.md"
+	],
+	"dependencies": {
+		"nette.ajax.js": "~1.2"
+	}
+}
