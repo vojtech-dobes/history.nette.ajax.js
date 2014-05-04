@@ -10,7 +10,7 @@ Adds History API support to nette.ajax.js addon for Nette Framework!
 
 ```
 extensions:
-	ajax-history: VojtechDobes\NetteAjax\HistoryExtension
+	ajaxHistory: VojtechDobes\NetteAjax\HistoryExtension
 ```
 
 ## Usage
