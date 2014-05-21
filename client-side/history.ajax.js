@@ -42,7 +42,7 @@ $.nette.ext('history', {
 
 		$(window).on('popstate.nette', $.proxy(function (e) {
 			var state = e.originalEvent.state || this.initialState;
-			var initialPop = (popped && initialUrl == state.href);
+			var initialPop = (!popped && initialUrl == state.href);
 			popped = true;
 			if (initialPop) {
 				return;
