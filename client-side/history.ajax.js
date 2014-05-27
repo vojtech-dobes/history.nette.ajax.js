@@ -37,13 +37,13 @@ $.nette.ext('history', {
 			};
 		}
 
-		var popped = !!('state' in window.history) && !!window.history.state;
+		this.popped = !!('state' in window.history) && !!window.history.state;
 		var initialUrl = window.location.href;
 
 		$(window).on('popstate.nette', $.proxy(function (e) {
 			var state = e.originalEvent.state || this.initialState;
-			var initialPop = (!popped && initialUrl == state.href);
-			popped = true;
+			var initialPop = (!this.popped && initialUrl == state.href);
+			this.popped = true;
 			if (initialPop) {
 				return;
 			}
@@ -95,10 +95,12 @@ $.nette.ext('history', {
 			}, document.title, this.href);
 		}
 		this.href = null;
+		this.popped = true;
 	}
 }, {
 	href: null,
 	cache: true,
+	popped: false,
 	handleTitle: function (title) {
 		document.title = title;
 	}
