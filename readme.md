@@ -38,6 +38,14 @@ And `app/@layout.latte` might be upgraded accordingly:
 {/snippet}
 ```
 
+### Disabling
+
+If you want specific links or forms exclude from scope of this addon (not make them update the URL), you can use `data-ajax-off` feature of *nette.ajax.js*.
+
+```html
+<a class="ajax" data-ajax-off="history">
+```
+
 ## UI Caching
 
 Extension will automatically cache your UI and restore it on *Back* and *Forward* buttons without communication with server. If you wish to call server on every *Back* and *Forward*, turn caching off.
