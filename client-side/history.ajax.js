@@ -71,7 +71,7 @@ $.nette.ext('history', {
 		} else if (!settings.nette.form) {
 			this.href = settings.nette.ui.href;
 		} else if (settings.nette.form[0].method == 'get') {
-			this.href = settings.nette.ui.action || window.location.href;
+			this.href = settings.nette.form[0].action || window.location.href;
 		} else {
 			this.href = null;
 		}
