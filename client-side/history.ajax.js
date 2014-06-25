@@ -70,7 +70,7 @@ $.nette.ext('history', {
 			this.href = null;
 		} else if (!settings.nette.form) {
 			this.href = settings.nette.ui.href;
-		} else if (settings.nette.form.method == 'get') {
+		} else if (settings.nette.form[0].method == 'get') {
 			this.href = settings.nette.ui.action || window.location.href;
 		} else {
 			this.href = null;
