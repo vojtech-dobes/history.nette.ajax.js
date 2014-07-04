@@ -9,10 +9,12 @@ var findSnippets = function () {
 	var result = [];
 	$('[id^="snippet-"]').each(function () {
 		var $el = $(this);
-		result.push({
-			id: $el.attr('id'),
-			html: $el.html()
-		});
+		if (!$el.is('[data-history-nocache]')) {
+			result.push({
+				id: $el.attr('id'),
+				html: $el.html()
+			});
+		}
 	});
 	return result;
 };
