@@ -44,7 +44,7 @@ $.nette.ext('history', {
 
 		$(window).on('popstate.nette', $.proxy(function (e) {
 			var state = e.originalEvent.state || this.initialState;
-			var initialPop = (popped && initialUrl == state.href);
+			var initialPop = (popped && initialUrl === state.href);
 			popped = true;
 			if (initialPop) {
 				return;
@@ -72,7 +72,7 @@ $.nette.ext('history', {
 			this.href = null;
 		} else if (!settings.nette.form) {
 			this.href = settings.nette.ui.href;
-		} else if (settings.nette.form.method == 'get') {
+		} else if (settings.nette.form.method === 'get') {
 			this.href = settings.nette.ui.action || window.location.href;
 		} else {
 			this.href = null;
