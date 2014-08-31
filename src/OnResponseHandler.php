@@ -31,6 +31,9 @@ class OnResponseHandler
 	/** @var bool */
 	private $forwardHasHappened = FALSE;
 
+	/** @var string */
+	private $fragment = '';
+
 
 
 	/**
@@ -59,6 +62,9 @@ class OnResponseHandler
 	{
 		if ($response instanceof JsonResponse && ($payload = $response->getPayload()) instanceof \stdClass) {
 			if (!$this->forwardHasHappened && isset($payload->redirect)) {
+				if (($fragmentPos = strpos($payload->redirect, '#')) !== FALSE) {
+					$this->fragment = substr($payload->redirect, $fragmentPos);
+				}
 				$url = new Http\UrlScript($payload->redirect);
 				$url->setScriptPath($this->httpRequest->url->scriptPath);
 				$httpRequest = new Http\Request($url);
@@ -72,7 +78,8 @@ class OnResponseHandler
 					exit;
 				}
 			} elseif ($this->forwardHasHappened && !isset($payload->redirect)) {
-				$payload->redirect = $application->getPresenter()->link('this');
+				$payload->redirect = $application->getPresenter()->link('this') . $this->fragment;
+				$this->fragment = '';
 			}
 		}
 	}
