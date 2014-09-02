@@ -64,7 +64,7 @@ $.nette.ext('history', {
 			nette: true,
 			href: window.location.href,
 			title: document.title,
-			ui: findSnippets()
+			ui: this.cache ? findSnippets() : null
 		}, document.title, window.location.href);
 	},
 	before: function (xhr, settings) {
@@ -93,7 +93,7 @@ $.nette.ext('history', {
 				nette: true,
 				href: this.href,
 				title: document.title,
-				ui: findSnippets()
+				ui: this.cache ? findSnippets() : null
 			}, document.title, this.href);
 		}
 		this.href = null;
