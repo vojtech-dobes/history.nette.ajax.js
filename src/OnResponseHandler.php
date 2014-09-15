@@ -78,7 +78,7 @@ class OnResponseHandler
 					exit;
 				}
 			} elseif ($this->forwardHasHappened && !isset($payload->redirect)) {
-				$payload->redirect = $application->getPresenter()->link('this') . $this->fragment;
+				$payload->redirect = $application->getPresenter()->link('this', $application->getPresenter()->getParameters()) . $this->fragment;
 				$this->fragment = '';
 			}
 		}
