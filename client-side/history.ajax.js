@@ -88,7 +88,7 @@ $.nette.ext('history', {
 				window.location.href = redirect;
 			}
 		}
-		if (this.href && this.href != window.location.href) {
+		if (this.href && this.href != window.location.href && this.href.indexOf('do=') === -1) {
 			history.pushState({
 				nette: true,
 				href: this.href,
