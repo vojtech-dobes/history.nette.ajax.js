@@ -10,6 +10,6 @@
 		"readme.md"
 	],
 	"dependencies": {
-		"nette.ajax.js": "~1.2"
+		"nette.ajax.js": "~2.0"
 	}
 }
