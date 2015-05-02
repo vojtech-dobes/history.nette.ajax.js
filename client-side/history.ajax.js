@@ -24,6 +24,32 @@ var handleState = function (context, name, args) {
 		handler.apply(context, args);
 	}
 };
+/**
+ * Either save snippets to localStorage & return key or return snippets for fallbacks.
+ * @param {String} hashKey
+ * @returns {Array|String}
+ */
+var saveSnippets = function(hashKey) {
+	var snippets = findSnippets();
+	if (window.localStorage) {
+		localStorage.setItem(hashKey, JSON.stringify(snippets));
+		return hashKey;
+	} else {
+		return snippets;
+	}
+};
+/**
+ * Load array of snippet objects.
+ * @param {String} snippetsOrHash
+ * @returns {Array}
+ */
+var loadSnippets = function(snippetsOrHash) {
+	if (window.localStorage) {
+		return JSON.parse(localStorage.getItem(snippetsOrHash));
+	} else {
+		return snippetsOrHash;
+	}
+};
 
 $.nette.ext('history', {
 	init: function () {
@@ -31,7 +57,7 @@ $.nette.ext('history', {
 		if (this.cache && (snippetsExt = $.nette.ext('snippets'))) {
 			this.handleUI = function (domCache) {
 				var snippets = {};
-				$.each(domCache, function () {
+				$.each(loadSnippets(domCache), function () {
 					snippets[this.id] = this.html;
 				});
 				snippetsExt.updateSnippets(snippets, true);
@@ -64,7 +90,7 @@ $.nette.ext('history', {
 			nette: true,
 			href: window.location.href,
 			title: document.title,
-			ui: this.cache ? findSnippets() : null
+			ui: this.cache ? saveSnippets(window.location.href) : null
 		}, document.title, window.location.href);
 	},
 	before: function (xhr, settings) {
@@ -93,7 +119,7 @@ $.nette.ext('history', {
 				nette: true,
 				href: this.href,
 				title: document.title,
-				ui: this.cache ? findSnippets() : null
+				ui: this.cache ? saveSnippets(this.href) : null
 			}, document.title, this.href);
 		}
 		this.href = null;
