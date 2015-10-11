@@ -2,7 +2,6 @@
 
 namespace VojtechDobes\NetteAjax;
 
-use Nette\Application\Responses\ForwardResponse;
 use Nette\Application\Responses\JsonResponse;
 use Nette\Application\IRouter;
 use Nette\Http;
