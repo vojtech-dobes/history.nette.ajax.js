@@ -16,10 +16,10 @@ class HistoryExtension extends DI\CompilerExtension
 		$container = $this->getContainerBuilder();
 
 		$container->addDefinition($this->prefix('onRequestHandler'))
-			->setClass('VojtechDobes\NetteAjax\OnRequestHandler');
+			->setClass(OnRequestHandler::class);
 
 		$container->addDefinition($this->prefix('onResponseHandler'))
-			->setClass('VojtechDobes\NetteAjax\OnResponseHandler');
+			->setClass(OnResponseHandler::class);
 
 		$application = $container->getDefinition('application');
 		$application->addSetup('$service->onRequest[] = ?', array('@' . $this->prefix('onRequestHandler')));
