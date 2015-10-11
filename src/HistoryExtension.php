@@ -4,10 +4,6 @@ namespace VojtechDobes\NetteAjax;
 
 use Nette\DI;
 
-if (!class_exists('Nette\DI\CompilerExtension')) {
-	class_alias('Nette\Config\CompilerExtension', 'Nette\DI\CompilerExtension');
-}
-
 
 /**
  * Provides support for History API
