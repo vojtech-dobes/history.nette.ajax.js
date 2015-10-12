@@ -1,0 +1,5 @@
+extensions:
+	- VojtechDobes\NetteAjax\HistoryExtension
+
+application:
+	scanDirs: false

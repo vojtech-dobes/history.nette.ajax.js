@@ -12,8 +12,15 @@
 		}
 	],
 	"require": {
-		"php": ">=5.3.1",
-		"nette/nette": "~2.0"
+		"php": ">=5.5",
+		"nette/application": "~2.3",
+		"nette/bootstrap": "~2.3",
+		"nette/di": "~2.3"
+	},
+	"require-dev": {
+		"nette/tester": "~1.5",
+		"tracy/tracy": "~2.3",
+		"phpspec/prophecy": "~1.5"
 	},
 	"autoload": {
 		"classmap": ["src/"]
