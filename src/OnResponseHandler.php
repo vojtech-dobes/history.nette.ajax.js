@@ -5,7 +5,7 @@ namespace VojtechDobes\NetteAjax;
 use Nette\Application\Responses\JsonResponse;
 use Nette\Application\IRouter;
 use Nette\Http;
-use Nette\Reflection\Property;
+use ReflectionProperty;
 
 
 /**
@@ -69,7 +69,7 @@ class OnResponseHandler
 				$httpRequest = new Http\Request($url);
 
 				if ($this->router->match($httpRequest) !== NULL) {
-					$prop = new Property('Nette\Application\Application', 'httpRequest');
+					$prop = new ReflectionProperty('Nette\Application\Application', 'httpRequest');
 					$prop->setAccessible(TRUE);
 					$prop->setValue($application, $httpRequest);
 
