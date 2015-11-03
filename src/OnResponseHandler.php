@@ -65,8 +65,16 @@ class OnResponseHandler
 				if (($fragmentPos = strpos($payload->redirect, '#')) !== FALSE) {
 					$this->fragment = substr($payload->redirect, $fragmentPos);
 				}
+				$requestUrl = $this->httpRequest->getUrl();
 				$url = new Http\UrlScript($payload->redirect);
-				$url->setScriptPath($this->httpRequest->url->scriptPath);
+				$url->setScriptPath($requestUrl->getScriptPath());
+				if ( ! $url->getHost()) {
+					$url->setHost($requestUrl->getHost());
+					$url->setPort($requestUrl->getPort());
+					$url->setScheme($requestUrl->getScheme());
+					$url->setUser($requestUrl->getUser());
+					$url->setPassword($requestUrl->getPassword());
+				}
 				$httpRequest = new Http\Request($url);
 
 				if ($this->router->match($httpRequest) !== NULL) {
