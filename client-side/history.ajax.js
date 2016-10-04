@@ -48,7 +48,7 @@ $.nette.ext('history', {
 			var state = e.originalEvent.state || this.initialState;
 			var initialPop = (!this.popped && initialUrl === state.href);
 			this.popped = true;
-			if (initialPop) {
+			if (initialPop || !e.state) {
 				return;
 			}
 			if (this.cache && state.ui) {
