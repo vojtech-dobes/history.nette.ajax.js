@@ -2,6 +2,10 @@
 
 Adds History API support to nette.ajax.js addon for Nette Framework!
 
+## Forked info
+This is a forked version and so it depends on forked version of [nette.ajax.js](https://github.com/zipper/nette.ajax.js).
+
+
 ## Installation
 
 1. Link `client-side/history.ajax.js` after `nette.ajax.js`.
