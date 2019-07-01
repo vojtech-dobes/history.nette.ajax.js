@@ -1,0 +1,29 @@
+{
+	"name": "history.nette.ajax.js",
+	"title": "history.nette.ajax.js",
+	"description": "Adds History API support for Nette Framework.",
+	"version": "1.0.1",
+	"author": "Vojtech Dobes <me@vojtechdobes.com>",
+	"contributors": [
+		"Radek Šerý <radek.sery@peckadesign.cz>"
+	],
+	"main": "client-side/history.ajax.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/zipper/history.nette.ajax.js"
+	},
+	"keywords": [
+		"nette",
+		"ajax",
+		"jquery",
+		"history"
+	],
+	"bugs": "https://github.com/zipper/history.nette.ajax.js/issues",
+	"license": "MIT",
+	"homepage": "https://github.com/zipper/history.nette.ajax.js",
+	"dependencies": {
+		"jquery": ">=1.12",
+		"nette.ajax.js": "zipper/nette.ajax.js#semver:~2.4.0"
+	},
+	"devDependencies": {}
+}
