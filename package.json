@@ -2,7 +2,7 @@
 	"name": "history.nette.ajax.js",
 	"title": "history.nette.ajax.js",
 	"description": "Adds History API support for Nette Framework.",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"author": "Vojtech Dobes <me@vojtechdobes.com>",
 	"contributors": [
 		"Radek Šerý <radek.sery@peckadesign.cz>"

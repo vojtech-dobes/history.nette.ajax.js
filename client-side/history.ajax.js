@@ -62,12 +62,16 @@
 				}
 			}, this));
 
-			history.replaceState(this.initialState = {
-				nette: true,
-				href: window.location.href,
-				title: document.title,
-				ui: this.cache ? findSnippets() : null
-			}, document.title, window.location.href);
+			this.initialState = $.extend({},
+				history.state || {},
+				{
+					nette: true,
+					href: window.location.href,
+					title: document.title,
+					ui: this.cache ? findSnippets() : null
+				});
+
+			history.replaceState(this.initialState, document.title, window.location.href);
 		},
 		before: function (xhr, settings) {
 			if (!settings.nette) {
